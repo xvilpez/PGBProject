@@ -1,0 +1,44 @@
+---
+title: "Comparison of dN/dS ratios of Human TFs - MyoD1"
+output: html_document
+date: "2024-10-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/Users/claudiavicentecomorera/Desktop/MSc/PGB/PGBProject")
+```
+
+# Read the data
+```{r}
+data <- read.table("HumanTFs_DBD.txt", header = T, row.names = 1, sep = "\t")
+head(data)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
