@@ -3,36 +3,66 @@ title: "Comparison of dN/dS ratios of Human TFs - MyoD1"
 output: html_document
 date: "2024-10-17"
 ---
+In this markdown we are going to compare the dN/dS values of MyoD1 with the rest of the bHLH TFs.
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 setwd("/Users/claudiavicentecomorera/Desktop/MSc/PGB/PGBProject")
 ```
 
+```{r}
+library(dplyr)
+library(naniar)
+library(ggplot2)
+```
+
+
 # Read the data
+
 ```{r}
 data <- read.table("HumanTFs_DBD.txt", header = T, row.names = 1, sep = "\t")
-head(data)
+dnds <- read.table("HumanDnDsW.txt", header = T,  sep = "\t")
+
+bHLH_data <- left_join(data[data$DBD == "bHLH",], dnds, by=c("Ensembl.ID"="GeneID"))
+bHLH_data
 ```
 
-```{r}
+# Data inspection
 
+```{r}
+summary(bHLH_data)
+vis_miss(bHLH_data)
 ```
 
-```{r}
+# Data log-transformation
 
+```{r}
+hist(bHLH_data$Homo_sapiens.w, main = "dN/dS Distribution", xlab = "dN/dS", breaks = 30, col = "#8EEE8B")
+bHLH_data$Homo_sapiens.w.log2 <- log2(bHLH_data$Homo_sapiens.w)
+hist(bHLH_data$Homo_sapiens.w.log2, main = "dN/dS Distribution", xlab = "dN/dS", breaks = 30, col = "#8EEE8B")
 ```
 
-```{r}
+# Data visualization
 
+```{r warning=FALSE}
+ggplot(bHLH_data, aes(x = HGNC.symbol, y = Homo_sapiens.w.log2)) +
+  geom_bar(stat = "identity", aes(fill = HGNC.symbol == "MYOD1")) +  
+  scale_fill_manual(values = c("#68B0F8", "#C968F8"), guide = "none") +  
+  labs(title = "Bar plot of dN/dS (ω) values from bHLH family members", y = "dN/dS (ω)", x = "bHLH transcription factors") +
+  theme_bw() + 
+  scale_x_discrete(breaks = bHLH_data$HGNC.symbol[seq(1, nrow(bHLH_data), by = 2)], labels = function(x) {ifelse(x == "MYOD1", expression(bold("MYOD1")), x)}) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10), axis.text.y = element_text(size = 10))
+
+# bhlh_c <- bHLH_data[bHLH_data$HGNC.symbol != "MYOD1", ]
+# myod1 <- bHLH_data[bHLH_data$HGNC.symbol == "MYOD1", ]
 ```
 
-```{r}
-
-```
+#########
 
 ```{r}
-
+s_bHLH_data <- bHLH_data[bHLH_data$HGNC.symbol %in% c("MYOD1", "NEUROG2", "NEUROD2", "ASCL1", "OLIG2", "PTF1A", "ATOH1"), ]
+s_bHLH_data
 ```
 
 ```{r}
