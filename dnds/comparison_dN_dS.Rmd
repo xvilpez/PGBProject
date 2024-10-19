@@ -1,22 +1,32 @@
 ---
-title: "Comparison of dN/dS ratios of Human TFs - MyoD1"
-output: html_document
-date: "2024-10-17"
+title: "Comparison of dN/dS ratios of Human TFs"
+subtitle: "MyoD1: Myoblast determination protein 1"
+output: 
+  html_document: 
+    theme: cosmo
+    highlight: "pygments"
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: TRUE
 ---
-In this markdown we are going to compare the dN/dS values of MyoD1 with the rest of the bHLH TFs.
----
+
+In this markdown we are going to compare the dN/dS values of MyoD1 with the rest of the bHLH TFs. This way we can have an estimate of the selection pressure on the coding sequence of MyoD1.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 setwd("/Users/claudiavicentecomorera/Desktop/MSc/PGB/PGBProject")
 ```
 
-```{r}
+# Import libraries
+
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(naniar)
 library(ggplot2)
+library(GO.db)
+library(biomaRt)
 ```
-
 
 # Read the data
 
@@ -25,7 +35,7 @@ data <- read.table("HumanTFs_DBD.txt", header = T, row.names = 1, sep = "\t")
 dnds <- read.table("HumanDnDsW.txt", header = T,  sep = "\t")
 
 bHLH_data <- left_join(data[data$DBD == "bHLH",], dnds, by=c("Ensembl.ID"="GeneID"))
-bHLH_data
+head(bHLH_data)
 ```
 
 # Data inspection
@@ -33,6 +43,9 @@ bHLH_data
 ```{r}
 summary(bHLH_data)
 vis_miss(bHLH_data)
+#bHLH_data <- bHLH_data %>%
+#  filter(!is.na(Homo_sapiens.dN) & !is.na(Homo_sapiens.dS) & !is.na(Homo_sapiens.w))
+bHLH_data$Homo_sapiens.w[bHLH_data$HGNC.symbol == "MYOD1"]
 ```
 
 # Data log-transformation
@@ -45,6 +58,8 @@ hist(bHLH_data$Homo_sapiens.w.log2, main = "dN/dS Distribution", xlab = "dN/dS",
 
 # Data visualization
 
+MyoD1 dN/dS (ω) rato is 1e-04.
+
 ```{r warning=FALSE}
 ggplot(bHLH_data, aes(x = HGNC.symbol, y = Homo_sapiens.w.log2)) +
   geom_bar(stat = "identity", aes(fill = HGNC.symbol == "MYOD1")) +  
@@ -53,22 +68,39 @@ ggplot(bHLH_data, aes(x = HGNC.symbol, y = Homo_sapiens.w.log2)) +
   theme_bw() + 
   scale_x_discrete(breaks = bHLH_data$HGNC.symbol[seq(1, nrow(bHLH_data), by = 2)], labels = function(x) {ifelse(x == "MYOD1", expression(bold("MYOD1")), x)}) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10), axis.text.y = element_text(size = 10))
-
-# bhlh_c <- bHLH_data[bHLH_data$HGNC.symbol != "MYOD1", ]
-# myod1 <- bHLH_data[bHLH_data$HGNC.symbol == "MYOD1", ]
 ```
 
-#########
+# dN/dS comparison using GO terms containing "muscle"
 
 ```{r}
-s_bHLH_data <- bHLH_data[bHLH_data$HGNC.symbol %in% c("MYOD1", "NEUROG2", "NEUROD2", "ASCL1", "OLIG2", "PTF1A", "ATOH1"), ]
-s_bHLH_data
+xx <- as.list(GOTERM)
+terms <- lapply(xx, Term)
+muscle_terms <- grep("muscle", terms, ignore.case = TRUE)
+muscle_terms <- unlist(terms[muscle_terms])
+
+ensembl = useMart(biomart="ensembl", dataset="hsapiens_gene_ensembl")
+muscle_gene <- getBM(attributes=c('ensembl_gene_id', "go_id"),
+                     filters = 'go', values = names(muscle_terms), mart = ensembl)
+
+df_muscle <- filter(bHLH_data, Ensembl.ID %in% unique(muscle_gene$ensembl_gene_id))
+
+df_muscle$Geneset <- "Muscle"
+bHLH_data$Geneset <- "Others"
+df <- bHLH_data %>%
+  rows_update(df_muscle, by = "Ensembl.ID")
+head(df)
 ```
 
-```{r}
+MyoD1, as the majority of proteins, seems to be under strong purifying selection. In the following violin plot bHLH members with biological functions related to muscle have a lower ω rate compared to the members with other functions.
 
-```
-
-```{r}
-
+```{r warning=FALSE}
+ggplot(df, aes(x=Geneset, y=Homo_sapiens.w , fill=Geneset)) +
+  geom_violin(width=1.4) +
+  geom_boxplot(width=0.1, color="grey", alpha=0.2) +
+  labs(y = "dN/dS (ω)") +
+  theme_light() +
+  theme(
+    legend.position="none",
+    plot.title = element_text(size=11)
+  ) + ylim(c(0,1))
 ```
