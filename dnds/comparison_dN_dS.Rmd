@@ -26,6 +26,8 @@ library(naniar)
 library(ggplot2)
 library(GO.db)
 library(biomaRt)
+library(ggpubr)
+library(pheatmap)
 ```
 
 # Read the data
@@ -48,6 +50,14 @@ vis_miss(bHLH_data)
 bHLH_data$Homo_sapiens.w[bHLH_data$HGNC.symbol == "MYOD1"]
 ```
 
+```{r}
+s <- bHLH_data[bHLH_data$HGNC.symbol %in% c("MYOD1", "NEUROG2", "NEUROD2", "ASCL1", "OLIG2", "PTF1A", "ATOH1"), c("Homo_sapiens.dN", "Homo_sapiens.dS", "Homo_sapiens.w"), drop = FALSE]
+rownames(s) <- bHLH_data[bHLH_data$HGNC.symbol %in% c("MYOD1", "NEUROG2", "NEUROD2", "ASCL1", "OLIG2", "PTF1A", "ATOH1"), "HGNC.symbol"]
+colnames(s) <- c("dN", "dS", "ω")
+pheatmap(scale(s), cluster_rows = FALSE, cluster_cols = FALSE, color = colorRampPalette(c("blue", "white", "red"))(50), na_col = "#DDDDDD")
+```
+
+
 # Data log-transformation
 
 ```{r}
@@ -67,7 +77,8 @@ ggplot(bHLH_data, aes(x = HGNC.symbol, y = Homo_sapiens.w.log2)) +
   labs(title = "Bar plot of dN/dS (ω) values from bHLH family members", y = "dN/dS (ω)", x = "bHLH transcription factors") +
   theme_bw() + 
   scale_x_discrete(breaks = bHLH_data$HGNC.symbol[seq(1, nrow(bHLH_data), by = 2)], labels = function(x) {ifelse(x == "MYOD1", expression(bold("MYOD1")), x)}) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10), axis.text.y = element_text(size = 10))
+  theme(axis.text.x = element_text(hjust = 1, size = 10), axis.text.y = element_text(size = 10))+
+  rotate_x_text(angle = 90)
 ```
 
 # dN/dS comparison using GO terms containing "muscle"
@@ -91,7 +102,7 @@ df <- bHLH_data %>%
 head(df)
 ```
 
-MyoD1, as the majority of proteins, seems to be under strong purifying selection. In the following violin plot bHLH members with biological functions related to muscle have a lower ω rate compared to the members with other functions.
+MyoD1, as the majority of proteins, seems to be under strong purifying selection. In the following violin plot bHLH members with biological functions related to muscle seem to have a lower ω rate compared to the members with other functions.
 
 ```{r warning=FALSE}
 ggplot(df, aes(x=Geneset, y=Homo_sapiens.w , fill=Geneset)) +
@@ -99,8 +110,18 @@ ggplot(df, aes(x=Geneset, y=Homo_sapiens.w , fill=Geneset)) +
   geom_boxplot(width=0.1, color="grey", alpha=0.2) +
   labs(y = "dN/dS (ω)") +
   theme_light() +
-  theme(
-    legend.position="none",
-    plot.title = element_text(size=11)
-  ) + ylim(c(0,1))
+  theme(legend.position="none", plot.title = element_text(size=11)) + 
+  ylim(c(0,1)) +
+  stat_summary(
+    fun = "mean",
+    geom = "point",
+    color = "#fff"
+  ) +
+  stat_summary(
+    fun = "mean",
+    geom = "text",
+    aes(label = round(..y.., 3)),
+    hjust = -0.3,  
+    color = "#000"
+  )
 ```
