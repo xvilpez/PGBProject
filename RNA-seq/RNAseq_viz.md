@@ -36,8 +36,15 @@ library(svglite)
 
 ``` r
 meta <- read.delim("metadata.tsv", header = TRUE, sep = "\t")
-meta$Stage <- c(rep("E15.5", 2), rep("E12.5", 4), rep("E10.5", 4), 
-                  rep("E13.5", 2), rep("E11.5", 4), rep("E14.5", 4))
+
+stages <- c("ENCFF291NWK" = "E10.5", "ENCFF959ZAX" = "E10.5", "ENCFF775HDI" = "E10.5", "ENCFF678XFK" = "E10.5",
+            "ENCFF237DCF" = "E11.5", "ENCFF249AZE" = "E11.5", "ENCFF820NAK" = "E11.5", "ENCFF654OBR" = "E11.5",
+            "ENCFF479HKB" = "E12.5", "ENCFF409ZNA" = "E12.5", "ENCFF237SXT" = "E12.5", "ENCFF262CIY" = "E12.5",
+            "ENCFF780HRS" = "E14.5", "ENCFF682WAX" = "E14.5", "ENCFF235PJS" = "E14.5", "ENCFF184ELK" = "E14.5",
+            "ENCFF246JLP" = "E13.5", "ENCFF419QRX" = "E13.5",
+            "ENCFF679RDZ" = "E15.5", "ENCFF565KTC" = "E15.5")
+meta <- meta %>%
+  mutate(Stage = recode(File.accession, !!!stages))
 meta <- meta[, c("File.accession", "Stage", "Experiment.accession", "Biological.replicate.s.", "Technical.replicate.s.")]
 meta <- meta %>%
   mutate(Samples = paste0(Stage, "_", Biological.replicate.s.))
@@ -46,15 +53,15 @@ head(meta)
 
 ```
 ##   File.accession Stage Experiment.accession Biological.replicate.s.
-## 1    ENCFF246JLP E15.5          ENCSR347SQR                       1
-## 2    ENCFF419QRX E15.5          ENCSR347SQR                       2
+## 1    ENCFF246JLP E13.5          ENCSR347SQR                       1
+## 2    ENCFF419QRX E13.5          ENCSR347SQR                       2
 ## 3    ENCFF479HKB E12.5          ENCSR750YSX                       2
 ## 4    ENCFF409ZNA E12.5          ENCSR750YSX                       1
 ## 5    ENCFF237SXT E12.5          ENCSR750YSX                       2
 ## 6    ENCFF262CIY E12.5          ENCSR750YSX                       1
 ##   Technical.replicate.s. Samples
-## 1                    1_1 E15.5_1
-## 2                    2_1 E15.5_2
+## 1                    1_1 E13.5_1
+## 2                    2_1 E13.5_2
 ## 3                    2_1 E12.5_2
 ## 4                    1_1 E12.5_1
 ## 5                    2_1 E12.5_2
@@ -131,9 +138,9 @@ summary(sample.totals)
 ##     Sample              Counts       
 ##  Length:12          Min.   :1851497  
 ##  Class :character   1st Qu.:2296412  
-##  Mode  :character   Median :2521018  
-##                     Mean   :2757342  
-##                     3rd Qu.:3211452  
+##  Mode  :character   Median :2517002  
+##                     Mean   :2895806  
+##                     3rd Qu.:3596796  
 ##                     Max.   :4737913
 ```
 
@@ -147,9 +154,9 @@ summary(sample.totals_7)
 ##     Sample              Counts       
 ##  Length:12          Min.   :1851497  
 ##  Class :character   1st Qu.:2296412  
-##  Mode  :character   Median :2521018  
-##                     Mean   :2757342  
-##                     3rd Qu.:3211452  
+##  Mode  :character   Median :2517002  
+##                     Mean   :2895806  
+##                     3rd Qu.:3596796  
 ##                     Max.   :4737913
 ```
 
@@ -216,14 +223,14 @@ summary(pca)
 
 ```
 ## Importance of components:
-##                           PC1    PC2    PC3    PC4     PC5     PC6    PC7
-## Standard deviation     7.7157 4.0258 3.6687 2.0809 1.70926 1.19820 1.0535
-## Proportion of Variance 0.5953 0.1621 0.1346 0.0433 0.02922 0.01436 0.0111
-## Cumulative Proportion  0.5953 0.7574 0.8920 0.9353 0.96450 0.97886 0.9900
+##                           PC1    PC2    PC3     PC4     PC5     PC6     PC7
+## Standard deviation     7.9458 3.9873 3.2509 2.11166 1.55294 1.43331 0.89325
+## Proportion of Variance 0.6313 0.1590 0.1057 0.04459 0.02412 0.02054 0.00798
+## Cumulative Proportion  0.6313 0.7903 0.8960 0.94061 0.96473 0.98527 0.99325
 ##                            PC8     PC9    PC10    PC11      PC12
-## Standard deviation     0.63630 0.58408 0.38581 0.33044 5.434e-15
-## Proportion of Variance 0.00405 0.00341 0.00149 0.00109 0.000e+00
-## Cumulative Proportion  0.99401 0.99742 0.99891 1.00000 1.000e+00
+## Standard deviation     0.51445 0.48680 0.29633 0.29202 4.997e-15
+## Proportion of Variance 0.00265 0.00237 0.00088 0.00085 0.000e+00
+## Cumulative Proportion  0.99590 0.99827 0.99915 1.00000 1.000e+00
 ```
 
 ``` r

@@ -37,8 +37,15 @@ library(svglite)
 
 ```{r}
 meta <- read.delim("metadata.tsv", header = TRUE, sep = "\t")
-meta$Stage <- c(rep("E15.5", 2), rep("E12.5", 4), rep("E10.5", 4), 
-                  rep("E13.5", 2), rep("E11.5", 4), rep("E14.5", 4))
+
+stages <- c("ENCFF291NWK" = "E10.5", "ENCFF959ZAX" = "E10.5", "ENCFF775HDI" = "E10.5", "ENCFF678XFK" = "E10.5",
+            "ENCFF237DCF" = "E11.5", "ENCFF249AZE" = "E11.5", "ENCFF820NAK" = "E11.5", "ENCFF654OBR" = "E11.5",
+            "ENCFF479HKB" = "E12.5", "ENCFF409ZNA" = "E12.5", "ENCFF237SXT" = "E12.5", "ENCFF262CIY" = "E12.5",
+            "ENCFF780HRS" = "E14.5", "ENCFF682WAX" = "E14.5", "ENCFF235PJS" = "E14.5", "ENCFF184ELK" = "E14.5",
+            "ENCFF246JLP" = "E13.5", "ENCFF419QRX" = "E13.5",
+            "ENCFF679RDZ" = "E15.5", "ENCFF565KTC" = "E15.5")
+meta <- meta %>%
+  mutate(Stage = recode(File.accession, !!!stages))
 meta <- meta[, c("File.accession", "Stage", "Experiment.accession", "Biological.replicate.s.", "Technical.replicate.s.")]
 meta <- meta %>%
   mutate(Samples = paste0(Stage, "_", Biological.replicate.s.))
@@ -134,7 +141,6 @@ fpkm <- rpkm(chr7_mat, gene.length = chr7_ann$Length,log = F); dim(fpkm); fpkm <
 top100 <- head(order(rowVars(cpm), decreasing = T), 100)
 pca <- prcomp(t(fpkm[top100,]), center = T, scale = T)
 summary(pca)
-
 
 ggplot(data = as.data.frame(pca$x), aes(x = PC1, y = PC2)) +
   geom_point(size = 3, aes(shape = Cond$Rep, color = Cond$Stage)) + 
