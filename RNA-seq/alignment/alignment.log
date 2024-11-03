@@ -1,0 +1,910 @@
+Script started on Tue Oct 29 20:38:56 2024
+[1m[7m%[27m[1m[0m                                                                                                                                                            [0m[27m[24m[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq [K[?2004h[7m[33mfor[39m[7m file in trimmed/[7m[34m*[39m[7m.fastq[27m
+[7m[33mdo[39m[27m[K
+[7m[32mecho[39m[7m Aligning $file sample:[27m[K
+[7m[32mSTAR[39m[7m --genomeDir [7m[4mmm10/index[24m \[27m[K
+[7m--readFilesIn $file \[27m[K
+[7m--outFileNamePrefix aligned/$file \[27m[K
+[7m--outSAMtype BAM SortedByCoordinate --outSAMattributes All[27m[K
+[1m[7m[31m--runThreadN[0m[39m[7m 4 \[27m[K
+[7mdone [27m[K[8A[31C[27m[33mf[27m[33mo[27m[33mr[39m[27m [27mf[27mi[27ml[27me[27m [27mi[27mn[27m [27mt[27mr[27mi[27mm[27mm[27me[27md[27m/[27m[34m*[39m[27m.[27mf[27ma[27ms[27mt[27mq[1B[27m[33md[27m[33mo[39m[1B[27m[32me[27m[32mc[27m[32mh[27m[32mo[39m[27m [27mA[27ml[27mi[27mg[27mn[27mi[27mn[27mg[27m [27m$[27mf[27mi[27ml[27me[27m [27ms[27ma[27mm[27mp[27ml[27me[27m:[1B[27m[32mS[27m[32mT[27m[32mA[27m[32mR[39m[27m [27m-[27m-[27mg[27me[27mn[27mo[27mm[27me[27mD[27mi[27mr[27m [27m[4mm[27m[4mm[27m[4m1[27m[4m0[27m[4m/[27m[4mi[27m[4mn[27m[4md[27m[4me[27m[4mx[24m[27m [27m\[1B[27m-[27m-[27mr[27me[27ma[27md[27mF[27mi[27ml[27me[27ms[27mI[27mn[27m [27m$[27mf[27mi[27ml[27me[27m [27m\[1B[27m-[27m-[27mo[27mu[27mt[27mF[27mi[27ml[27me[27mN[27ma[27mm[27me[27mP[27mr[27me[27mf[27mi[27mx[27m [27ma[27ml[27mi[27mg[27mn[27me[27md[27m/[27m$[27mf[27mi[27ml[27me[27m [27m\[1B[27m-[27m-[27mo[27mu[27mt[27mS[27mA[27mM[27mt[27my[27mp[27me[27m [27mB[27mA[27mM[27m [27mS[27mo[27mr[27mt[27me[27md[27mB[27my[27mC[27mo[27mo[27mr[27md[27mi[27mn[27ma[27mt[27me[27m [27m-[27m-[27mo[27mu[27mt[27mS[27mA[27mM[27ma[27mt[27mt[27mr[27mi[27mb[27mu[27mt[27me[27ms[27m [27mA[27ml[27ml[1B[27m[1m[31m-[27m[1m[31m-[27m[1m[31mr[27m[1m[31mu[27m[1m[31mn[27m[1m[31mT[27m[1m[31mh[27m[1m[31mr[27m[1m[31me[27m[1m[31ma[27m[1m[31md[27m[1m[31mN[0m[39m[27m [27m4[27m [27m\[1B[27md[27mo[27mn[27me[K[A[A[1B[A[58C--runThreadN 4 \[1B[M[A[58C --runThreadN 4 \[16D[?2004l[2B[1m[7m%[27m[1m[0m                                                                                                                                                            [0m[27m[24m[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq [K[?2004h[7m[33mfor[39m[7m file in trimmed/[7m[34m*[39m[7m.fastq[27m
+[7m[33mdo[39m[27m[K
+[7m[32mecho[39m[7m Aligning $file sample:[27m[K
+[7m[32mSTAR[39m[7m --genomeDir [7m[4mmm10/index[24m \[27m[K
+[7m--readFilesIn $file \[27m[K
+[7m--outFileNamePrefix aligned/$file \[27m[K
+[7m--outSAMtype BAM SortedByCoordinate --outSAMattributes All \[27m[K
+[7m--runThreadN 4[27m[K
+[7m[33mdone[39m[7m [27m[K[8A[31C[27m[33mf[27m[33mo[27m[33mr[39m[27m [27mf[27mi[27ml[27me[27m [27mi[27mn[27m [27mt[27mr[27mi[27mm[27mm[27me[27md[27m/[27m[34m*[39m[27m.[27mf[27ma[27ms[27mt[27mq[1B[27m[33md[27m[33mo[39m[1B[27m[32me[27m[32mc[27m[32mh[27m[32mo[39m[27m [27mA[27ml[27mi[27mg[27mn[27mi[27mn[27mg[27m [27m$[27mf[27mi[27ml[27me[27m [27ms[27ma[27mm[27mp[27ml[27me[27m:[1B[27m[32mS[27m[32mT[27m[32mA[27m[32mR[39m[27m [27m-[27m-[27mg[27me[27mn[27mo[27mm[27me[27mD[27mi[27mr[27m [27m[4mm[27m[4mm[27m[4m1[27m[4m0[27m[4m/[27m[4mi[27m[4mn[27m[4md[27m[4me[27m[4mx[24m[27m [27m\[1B[27m-[27m-[27mr[27me[27ma[27md[27mF[27mi[27ml[27me[27ms[27mI[27mn[27m [27m$[27mf[27mi[27ml[27me[27m [27m\[1B[27m-[27m-[27mo[27mu[27mt[27mF[27mi[27ml[27me[27mN[27ma[27mm[27me[27mP[27mr[27me[27mf[27mi[27mx[27m [27ma[27ml[27mi[27mg[27mn[27me[27md[27m/[27m$[27mf[27mi[27ml[27me[27m [27m\[1B[27m-[27m-[27mo[27mu[27mt[27mS[27mA[27mM[27mt[27my[27mp[27me[27m [27mB[27mA[27mM[27m [27mS[27mo[27mr[27mt[27me[27md[27mB[27my[27mC[27mo[27mo[27mr[27md[27mi[27mn[27ma[27mt[27me[27m [27m-[27m-[27mo[27mu[27mt[27mS[27mA[27mM[27ma[27mt[27mt[27mr[27mi[27mb[27mu[27mt[27me[27ms[27m [27mA[27ml[27ml[27m [27m\[1B[27m-[27m-[27mr[27mu[27mn[27mT[27mh[27mr[27me[27ma[27md[27mN[27m [27m4[1B[27m[33md[27m[33mo[27m[33mn[27m[33me[39m[K[1C[?2004l
+Aligning trimmed/t_ENCFF184ELK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF184ELK.fastq --outFileNamePrefix aligned/trimmed/t_ENCFF184ELK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 4
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 29 20:40:11 ..... started STAR run
+Oct 29 20:40:11 ..... loading genome
+Oct 29 20:40:12 ..... started mapping
+Oct 29 21:52:44 ..... finished mapping
+Oct 29 21:52:44 ..... started sorting BAM
+Oct 29 21:52:47 ..... finished successfully
+Aligning trimmed/t_ENCFF235PJS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF235PJS.fastq --outFileNamePrefix aligned/trimmed/t_ENCFF235PJS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 4
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 29 21:52:47 ..... started STAR run
+Oct 29 21:52:47 ..... loading genome
+Oct 29 21:52:48 ..... started mapping
+Oct 29 23:10:43 ..... finished mapping
+Oct 29 23:10:43 ..... started sorting BAM
+Oct 29 23:10:47 ..... finished successfully
+Aligning trimmed/t_ENCFF237DCF.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF237DCF.fastq --outFileNamePrefix aligned/trimmed/t_ENCFF237DCF.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 4
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 29 23:10:47 ..... started STAR run
+Oct 29 23:10:47 ..... loading genome
+Oct 29 23:10:48 ..... started mapping
+Oct 30 00:51:25 ..... finished mapping
+Oct 30 00:51:25 ..... started sorting BAM
+Oct 30 00:51:30 ..... finished successfully
+Aligning trimmed/t_ENCFF237SXT.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF237SXT.fastq --outFileNamePrefix aligned/trimmed/t_ENCFF237SXT.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 4
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 00:51:31 ..... started STAR run
+Oct 30 00:51:31 ..... loading genome
+Oct 30 00:51:32 ..... started mapping
+Oct 30 02:07:21 ..... finished mapping
+Oct 30 02:07:21 ..... started sorting BAM
+Oct 30 02:07:24 ..... finished successfully
+(base) 💻 ~/Desktop/MSc/PGB/RNA-seq for file in trimmed/*.fastq
+do
+echo Aligning $file sample:
+STAR --genomeDir mm10/index \
+--readFilesIn $file \
+--outFileNamePrefix aligned2/$file \
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \
+--runThreadN 8
+done
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+Oct 30 14:45:45 ..... finished mapping
+Oct 30 14:45:45 ..... started sorting BAM
+Oct 30 14:45:50 ..... finished successfully
+Aligning trimmed/t_ENCFF249AZE.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF249AZE.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF249AZE.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 14:45:50 ..... started STAR run
+Oct 30 14:45:50 ..... loading genome
+Oct 30 14:45:51 ..... started mapping
+Oct 30 16:13:46 ..... finished mapping
+Oct 30 16:13:46 ..... started sorting BAM
+Oct 30 16:13:49 ..... finished successfully
+Aligning trimmed/t_ENCFF262CIY.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF262CIY.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF262CIY.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 16:13:49 ..... started STAR run
+Oct 30 16:13:49 ..... loading genome
+Oct 30 16:13:50 ..... started mapping
+Oct 30 17:06:50 ..... finished mapping
+Oct 30 17:06:50 ..... started sorting BAM
+Oct 30 17:06:52 ..... finished successfully
+Aligning trimmed/t_ENCFF291NWK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF291NWK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF291NWK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 17:06:53 ..... started STAR run
+Oct 30 17:06:53 ..... loading genome
+Oct 30 17:06:54 ..... started mapping
+Oct 30 20:24:19 ..... finished mapping
+Oct 30 20:24:19 ..... started sorting BAM
+Oct 30 20:24:21 ..... finished successfully
+Aligning trimmed/t_ENCFF409ZNA.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF409ZNA.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF409ZNA.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 20:24:22 ..... started STAR run
+Oct 30 20:24:22 ..... loading genome
+Oct 30 20:24:23 ..... started mapping
+Oct 30 21:54:18 ..... finished mapping
+Oct 30 21:54:18 ..... started sorting BAM
+Oct 30 21:54:22 ..... finished successfully
+Aligning trimmed/t_ENCFF419QRX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF419QRX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF419QRX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 21:54:23 ..... started STAR run
+Oct 30 21:54:23 ..... loading genome
+Oct 30 21:54:24 ..... started mapping
+Oct 31 00:06:21 ..... finished mapping
+Oct 31 00:06:21 ..... started sorting BAM
+Oct 31 00:06:27 ..... finished successfully
+Aligning trimmed/t_ENCFF479HKB.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF479HKB.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF479HKB.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 00:06:27 ..... started STAR run
+Oct 31 00:06:28 ..... loading genome
+Oct 31 00:06:29 ..... started mapping
+Oct 31 01:57:43 ..... finished mapping
+Oct 31 01:57:43 ..... started sorting BAM
+Oct 31 01:57:47 ..... finished successfully
+Aligning trimmed/t_ENCFF565KTC.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF565KTC.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF565KTC.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 01:57:48 ..... started STAR run
+Oct 31 01:57:48 ..... loading genome
+Oct 31 01:57:49 ..... started mapping
+Oct 31 04:14:28 ..... finished mapping
+Oct 31 04:14:28 ..... started sorting BAM
+Oct 31 04:14:34 ..... finished successfully
+Aligning trimmed/t_ENCFF654OBR.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF654OBR.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF654OBR.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 04:14:35 ..... started STAR run
+Oct 31 04:14:35 ..... loading genome
+Oct 31 04:14:36 ..... started mapping
+Oct 31 05:15:31 ..... finished mapping
+Oct 31 05:15:31 ..... started sorting BAM
+Oct 31 05:15:33 ..... finished successfully
+Aligning trimmed/t_ENCFF678XFK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF678XFK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF678XFK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 05:15:34 ..... started STAR run
+Oct 31 05:15:34 ..... loading genome
+Oct 31 05:15:35 ..... started mapping
+Oct 31 06:24:20 ..... finished mapping
+Oct 31 06:24:20 ..... started sorting BAM
+Oct 31 06:24:23 ..... finished successfully
+Aligning trimmed/t_ENCFF679RDZ.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF679RDZ.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF679RDZ.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 06:24:23 ..... started STAR run
+Oct 31 06:24:23 ..... loading genome
+Oct 31 06:24:24 ..... started mapping
+Oct 31 08:13:56 ..... finished mapping
+Oct 31 08:13:56 ..... started sorting BAM
+Oct 31 08:14:01 ..... finished successfully
+Aligning trimmed/t_ENCFF682WAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF682WAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF682WAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 08:14:01 ..... started STAR run
+Oct 31 08:14:01 ..... loading genome
+Oct 31 08:14:02 ..... started mapping
+Oct 31 09:18:19 ..... finished mapping
+Oct 31 09:18:19 ..... started sorting BAM
+Oct 31 09:18:21 ..... finished successfully
+Aligning trimmed/t_ENCFF775HDI.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF775HDI.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF775HDI.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 09:18:22 ..... started STAR run
+Oct 31 09:18:22 ..... loading genome
+Oct 31 09:18:23 ..... started mapping
+Oct 31 11:15:37 ..... finished mapping
+Oct 31 11:15:37 ..... started sorting BAM
+Oct 31 11:15:40 ..... finished successfully
+Aligning trimmed/t_ENCFF780HRS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF780HRS.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF780HRS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 11:15:40 ..... started STAR run
+Oct 31 11:15:41 ..... loading genome
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[32mulimitESC[39m -n 4096ESC[14DESC[33mfEESC[33moESC[33mrESC[39mESC[39m ESC[39mfESC[39mile in trimmed/ESC[34m*ESC[39m.fastq
+ESC[33mdoESC[39mESC[K
+ESC[32mechoESC[39m Aligning $file sample:ESC[K
+ESC[32mSTARESC[39m --genomeDir ESC[4mmm10/indexESC[24m \ESC[K
+--readFilesIn $file \ESC[K
+--outFileNamePrefix aligned2/$file \ESC[K
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \ESC[K
+--runThreadN 8ESC[K
+ESC[33mdoneESC[39mESC[KESC[1CESC[?2004l
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+        STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+        STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+...skipping...
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hOct 31 11:15:42 ..... started mapping
+Oct 31 12:17:55 ..... finished mapping
+Oct 31 12:17:55 ..... started sorting BAM
+Oct 31 12:17:58 ..... finished successfully
+Aligning trimmed/t_ENCFF820NAK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF820NAK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF820NAK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 12:17:58 ..... started STAR run
+Oct 31 12:17:58 ..... loading genome
+Oct 31 12:17:59 ..... started mapping
+Oct 31 15:09:31 ..... finished mapping
+Oct 31 15:09:31 ..... started sorting BAM
+Oct 31 15:09:35 ..... finished successfully
+Aligning trimmed/t_ENCFF959ZAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF959ZAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF959ZAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 15:09:35 ..... started STAR run
+Oct 31 15:09:36 ..... loading genome
+Oct 31 15:09:37 ..... started mapping
+Oct 31 16:36:08 ..... finished mapping
+Oct 31 16:36:08 ..... started sorting BAM
+Oct 31 16:36:11 ..... finished successfully
+(base) 💻 ~/Desktop/MSc/PGB/RNA-seq for file in trimmed/*.fastq
+do
+echo Aligning $file sample:
+STAR --genomeDir mm10/index \
+--readFilesIn $file \
+--outFileNamePrefix aligned2/$file \
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \
+--runThreadN 8
+done
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+Oct 30 14:45:45 ..... finished mapping
+Oct 30 14:45:45 ..... started sorting BAM
+Oct 30 14:45:50 ..... finished successfully
+Aligning trimmed/t_ENCFF249AZE.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF249AZE.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF249AZE.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 14:45:50 ..... started STAR run
+Oct 30 14:45:50 ..... loading genome
+Oct 30 14:45:51 ..... started mapping
+Oct 30 16:13:46 ..... finished mapping
+Oct 30 16:13:46 ..... started sorting BAM
+Oct 30 16:13:49 ..... finished successfully
+Aligning trimmed/t_ENCFF262CIY.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF262CIY.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF262CIY.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 16:13:49 ..... started STAR run
+Oct 30 16:13:49 ..... loading genome
+Oct 30 16:13:50 ..... started mapping
+Oct 30 17:06:50 ..... finished mapping
+Oct 30 17:06:50 ..... started sorting BAM
+Oct 30 17:06:52 ..... finished successfully
+Aligning trimmed/t_ENCFF291NWK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF291NWK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF291NWK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 17:06:53 ..... started STAR run
+Oct 30 17:06:53 ..... loading genome
+Oct 30 17:06:54 ..... started mapping
+Oct 30 20:24:19 ..... finished mapping
+Oct 30 20:24:19 ..... started sorting BAM
+Oct 30 20:24:21 ..... finished successfully
+Aligning trimmed/t_ENCFF409ZNA.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF409ZNA.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF409ZNA.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 20:24:22 ..... started STAR run
+Oct 30 20:24:22 ..... loading genome
+Oct 30 20:24:23 ..... started mapping
+Oct 30 21:54:18 ..... finished mapping
+Oct 30 21:54:18 ..... started sorting BAM
+Oct 30 21:54:22 ..... finished successfully
+Aligning trimmed/t_ENCFF419QRX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF419QRX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF419QRX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 21:54:23 ..... started STAR run
+Oct 30 21:54:23 ..... loading genome
+Oct 30 21:54:24 ..... started mapping
+Oct 31 00:06:21 ..... finished mapping
+Oct 31 00:06:21 ..... started sorting BAM
+Oct 31 00:06:27 ..... finished successfully
+Aligning trimmed/t_ENCFF479HKB.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF479HKB.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF479HKB.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 00:06:27 ..... started STAR run
+Oct 31 00:06:28 ..... loading genome
+Oct 31 00:06:29 ..... started mapping
+Oct 31 01:57:43 ..... finished mapping
+Oct 31 01:57:43 ..... started sorting BAM
+Oct 31 01:57:47 ..... finished successfully
+Aligning trimmed/t_ENCFF565KTC.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF565KTC.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF565KTC.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 01:57:48 ..... started STAR run
+Oct 31 01:57:48 ..... loading genome
+Oct 31 01:57:49 ..... started mapping
+Oct 31 04:14:28 ..... finished mapping
+Oct 31 04:14:28 ..... started sorting BAM
+Oct 31 04:14:34 ..... finished successfully
+Aligning trimmed/t_ENCFF654OBR.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF654OBR.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF654OBR.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 04:14:35 ..... started STAR run
+Oct 31 04:14:35 ..... loading genome
+Oct 31 04:14:36 ..... started mapping
+Oct 31 05:15:31 ..... finished mapping
+Oct 31 05:15:31 ..... started sorting BAM
+Oct 31 05:15:33 ..... finished successfully
+Aligning trimmed/t_ENCFF678XFK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF678XFK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF678XFK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 05:15:34 ..... started STAR run
+Oct 31 05:15:34 ..... loading genome
+Oct 31 05:15:35 ..... started mapping
+Oct 31 06:24:20 ..... finished mapping
+Oct 31 06:24:20 ..... started sorting BAM
+Oct 31 06:24:23 ..... finished successfully
+Aligning trimmed/t_ENCFF679RDZ.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF679RDZ.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF679RDZ.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 06:24:23 ..... started STAR run
+Oct 31 06:24:23 ..... loading genome
+Oct 31 06:24:24 ..... started mapping
+Oct 31 08:13:56 ..... finished mapping
+Oct 31 08:13:56 ..... started sorting BAM
+Oct 31 08:14:01 ..... finished successfully
+Aligning trimmed/t_ENCFF682WAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF682WAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF682WAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 08:14:01 ..... started STAR run
+Oct 31 08:14:01 ..... loading genome
+Oct 31 08:14:02 ..... started mapping
+Oct 31 09:18:19 ..... finished mapping
+Oct 31 09:18:19 ..... started sorting BAM
+Oct 31 09:18:21 ..... finished successfully
+Aligning trimmed/t_ENCFF775HDI.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF775HDI.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF775HDI.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 09:18:22 ..... started STAR run
+Oct 31 09:18:22 ..... loading genome
+Oct 31 09:18:23 ..... started mapping
+Oct 31 11:15:37 ..... finished mapping
+Oct 31 11:15:37 ..... started sorting BAM
+Oct 31 11:15:40 ..... finished successfully
+Aligning trimmed/t_ENCFF780HRS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF780HRS.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF780HRS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 11:15:40 ..... started STAR run
+Oct 31 11:15:41 ..... loading genome
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[32mulimitESC[39m -n 4096ESC[14DESC[33mfEESC[33moESC[33mrESC[39mESC[39m ESC[39mfESC[39mile in trimmed/ESC[34m*ESC[39m.fastq
+ESC[33mdoESC[39mESC[K
+ESC[32mechoESC[39m Aligning $file sample:ESC[K
+ESC[32mSTARESC[39m --genomeDir ESC[4mmm10/indexESC[24m \ESC[K
+--readFilesIn $file \ESC[K
+--outFileNamePrefix aligned2/$file \ESC[K
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \ESC[K
+--runThreadN 8ESC[K
+ESC[33mdoneESC[39mESC[KESC[1CESC[?2004l
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+        STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+        STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+...skipping...
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hOct 31 11:15:42 ..... started mapping
+Oct 31 12:17:55 ..... finished mapping
+Oct 31 12:17:55 ..... started sorting BAM
+Oct 31 12:17:58 ..... finished successfully
+Aligning trimmed/t_ENCFF820NAK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF820NAK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF820NAK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 12:17:58 ..... started STAR run
+Oct 31 12:17:58 ..... loading genome
+Oct 31 12:17:59 ..... started mapping
+Oct 31 15:09:31 ..... finished mapping
+Oct 31 15:09:31 ..... started sorting BAM
+Oct 31 15:09:35 ..... finished successfully
+Aligning trimmed/t_ENCFF959ZAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF959ZAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF959ZAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 15:09:35 ..... started STAR run
+Oct 31 15:09:36 ..... loading genome
+Oct 31 15:09:37 ..... started mapping
+Oct 31 16:36:08 ..... finished mapping
+Oct 31 16:36:08 ..... started sorting BAM
+Oct 31 16:36:11 ..... finished successfully
+%(base) 💻 ~/Desktop/MSc/PGB/RNA-seq for file in trimmed/*.fastq
+do
+echo Aligning $file sample:
+STAR --genomeDir mm10/index \
+--readFilesIn $file \
+--outFileNamePrefix aligned2/$file \
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \
+--runThreadN 8
+done
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+Oct 30 14:45:45 ..... finished mapping
+Oct 30 14:45:45 ..... started sorting BAM
+Oct 30 14:45:50 ..... finished successfully
+Aligning trimmed/t_ENCFF249AZE.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF249AZE.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF249AZE.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 14:45:50 ..... started STAR run
+Oct 30 14:45:50 ..... loading genome
+Oct 30 14:45:51 ..... started mapping
+Oct 30 16:13:46 ..... finished mapping
+Oct 30 16:13:46 ..... started sorting BAM
+Oct 30 16:13:49 ..... finished successfully
+Aligning trimmed/t_ENCFF262CIY.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF262CIY.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF262CIY.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 16:13:49 ..... started STAR run
+Oct 30 16:13:49 ..... loading genome
+Oct 30 16:13:50 ..... started mapping
+Oct 30 17:06:50 ..... finished mapping
+Oct 30 17:06:50 ..... started sorting BAM
+Oct 30 17:06:52 ..... finished successfully
+Aligning trimmed/t_ENCFF291NWK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF291NWK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF291NWK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 17:06:53 ..... started STAR run
+Oct 30 17:06:53 ..... loading genome
+Oct 30 17:06:54 ..... started mapping
+Oct 30 20:24:19 ..... finished mapping
+Oct 30 20:24:19 ..... started sorting BAM
+Oct 30 20:24:21 ..... finished successfully
+Aligning trimmed/t_ENCFF409ZNA.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF409ZNA.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF409ZNA.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 20:24:22 ..... started STAR run
+Oct 30 20:24:22 ..... loading genome
+Oct 30 20:24:23 ..... started mapping
+Oct 30 21:54:18 ..... finished mapping
+Oct 30 21:54:18 ..... started sorting BAM
+Oct 30 21:54:22 ..... finished successfully
+Aligning trimmed/t_ENCFF419QRX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF419QRX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF419QRX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 21:54:23 ..... started STAR run
+Oct 30 21:54:23 ..... loading genome
+Oct 30 21:54:24 ..... started mapping
+Oct 31 00:06:21 ..... finished mapping
+Oct 31 00:06:21 ..... started sorting BAM
+Oct 31 00:06:27 ..... finished successfully
+Aligning trimmed/t_ENCFF479HKB.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF479HKB.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF479HKB.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 00:06:27 ..... started STAR run
+Oct 31 00:06:28 ..... loading genome
+Oct 31 00:06:29 ..... started mapping
+Oct 31 01:57:43 ..... finished mapping
+Oct 31 01:57:43 ..... started sorting BAM
+Oct 31 01:57:47 ..... finished successfully
+Aligning trimmed/t_ENCFF565KTC.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF565KTC.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF565KTC.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 01:57:48 ..... started STAR run
+Oct 31 01:57:48 ..... loading genome
+Oct 31 01:57:49 ..... started mapping
+Oct 31 04:14:28 ..... finished mapping
+Oct 31 04:14:28 ..... started sorting BAM
+Oct 31 04:14:34 ..... finished successfully
+Aligning trimmed/t_ENCFF654OBR.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF654OBR.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF654OBR.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 04:14:35 ..... started STAR run
+Oct 31 04:14:35 ..... loading genome
+Oct 31 04:14:36 ..... started mapping
+Oct 31 05:15:31 ..... finished mapping
+Oct 31 05:15:31 ..... started sorting BAM
+Oct 31 05:15:33 ..... finished successfully
+Aligning trimmed/t_ENCFF678XFK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF678XFK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF678XFK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 05:15:34 ..... started STAR run
+Oct 31 05:15:34 ..... loading genome
+Oct 31 05:15:35 ..... started mapping
+Oct 31 06:24:20 ..... finished mapping
+Oct 31 06:24:20 ..... started sorting BAM
+Oct 31 06:24:23 ..... finished successfully
+Aligning trimmed/t_ENCFF679RDZ.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF679RDZ.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF679RDZ.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 06:24:23 ..... started STAR run
+Oct 31 06:24:23 ..... loading genome
+Oct 31 06:24:24 ..... started mapping
+Oct 31 08:13:56 ..... finished mapping
+Oct 31 08:13:56 ..... started sorting BAM
+Oct 31 08:14:01 ..... finished successfully
+Aligning trimmed/t_ENCFF682WAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF682WAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF682WAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 08:14:01 ..... started STAR run
+Oct 31 08:14:01 ..... loading genome
+Oct 31 08:14:02 ..... started mapping
+Oct 31 09:18:19 ..... finished mapping
+Oct 31 09:18:19 ..... started sorting BAM
+Oct 31 09:18:21 ..... finished successfully
+Aligning trimmed/t_ENCFF775HDI.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF775HDI.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF775HDI.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 09:18:22 ..... started STAR run
+Oct 31 09:18:22 ..... loading genome
+Oct 31 09:18:23 ..... started mapping
+Oct 31 11:15:37 ..... finished mapping
+Oct 31 11:15:37 ..... started sorting BAM
+Oct 31 11:15:40 ..... finished successfully
+Aligning trimmed/t_ENCFF780HRS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF780HRS.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF780HRS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 11:15:40 ..... started STAR run
+Oct 31 11:15:41 ..... loading genome
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[32mulimitESC[39m -n 4096ESC[14DESC[33mfEESC[33moESC[33mrESC[39mESC[39m ESC[39mfESC[39mile in trimmed/ESC[34m*ESC[39m.fastq
+ESC[33mdoESC[39mESC[K
+ESC[32mechoESC[39m Aligning $file sample:ESC[K
+ESC[32mSTARESC[39m --genomeDir ESC[4mmm10/indexESC[24m \ESC[K
+--readFilesIn $file \ESC[K
+--outFileNamePrefix aligned2/$file \ESC[K
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \ESC[K
+--runThreadN 8ESC[K
+ESC[33mdoneESC[39mESC[KESC[1CESC[?2004l
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+        STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+        STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+...skipping...
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hOct 31 11:15:42 ..... started mapping
+Oct 31 12:17:55 ..... finished mapping
+Oct 31 12:17:55 ..... started sorting BAM
+Oct 31 12:17:58 ..... finished successfully
+Aligning trimmed/t_ENCFF820NAK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF820NAK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF820NAK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 12:17:58 ..... started STAR run
+Oct 31 12:17:58 ..... loading genome
+Oct 31 12:17:59 ..... started mapping
+Oct 31 15:09:31 ..... finished mapping
+Oct 31 15:09:31 ..... started sorting BAM
+Oct 31 15:09:35 ..... finished successfully
+Aligning trimmed/t_ENCFF959ZAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF959ZAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF959ZAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 15:09:35 ..... started STAR run
+Oct 31 15:09:36 ..... loading genome
+Oct 31 15:09:37 ..... started mapping
+Oct 31 16:36:08 ..... finished mapping
+Oct 31 16:36:08 ..... started sorting BAM
+Oct 31 16:36:11 ..... finished successfully
+(base) 💻 ~/Desktop/MSc/PGB/RNA-seq for file in trimmed/*.fastq
+do
+echo Aligning $file sample:
+STAR --genomeDir mm10/index \
+--readFilesIn $file \
+--outFileNamePrefix aligned2/$file \
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \
+--runThreadN 8
+done
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+Oct 30 14:45:45 ..... finished mapping
+Oct 30 14:45:45 ..... started sorting BAM
+Oct 30 14:45:50 ..... finished successfully
+Aligning trimmed/t_ENCFF249AZE.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF249AZE.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF249AZE.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 14:45:50 ..... started STAR run
+Oct 30 14:45:50 ..... loading genome
+Oct 30 14:45:51 ..... started mapping
+Oct 30 16:13:46 ..... finished mapping
+Oct 30 16:13:46 ..... started sorting BAM
+Oct 30 16:13:49 ..... finished successfully
+Aligning trimmed/t_ENCFF262CIY.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF262CIY.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF262CIY.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 16:13:49 ..... started STAR run
+Oct 30 16:13:49 ..... loading genome
+Oct 30 16:13:50 ..... started mapping
+Oct 30 17:06:50 ..... finished mapping
+Oct 30 17:06:50 ..... started sorting BAM
+Oct 30 17:06:52 ..... finished successfully
+Aligning trimmed/t_ENCFF291NWK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF291NWK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF291NWK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 17:06:53 ..... started STAR run
+Oct 30 17:06:53 ..... loading genome
+Oct 30 17:06:54 ..... started mapping
+Oct 30 20:24:19 ..... finished mapping
+Oct 30 20:24:19 ..... started sorting BAM
+Oct 30 20:24:21 ..... finished successfully
+Aligning trimmed/t_ENCFF409ZNA.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF409ZNA.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF409ZNA.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 20:24:22 ..... started STAR run
+Oct 30 20:24:22 ..... loading genome
+Oct 30 20:24:23 ..... started mapping
+Oct 30 21:54:18 ..... finished mapping
+Oct 30 21:54:18 ..... started sorting BAM
+Oct 30 21:54:22 ..... finished successfully
+Aligning trimmed/t_ENCFF419QRX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF419QRX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF419QRX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 21:54:23 ..... started STAR run
+Oct 30 21:54:23 ..... loading genome
+Oct 30 21:54:24 ..... started mapping
+Oct 31 00:06:21 ..... finished mapping
+Oct 31 00:06:21 ..... started sorting BAM
+Oct 31 00:06:27 ..... finished successfully
+Aligning trimmed/t_ENCFF479HKB.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF479HKB.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF479HKB.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 00:06:27 ..... started STAR run
+Oct 31 00:06:28 ..... loading genome
+Oct 31 00:06:29 ..... started mapping
+Oct 31 01:57:43 ..... finished mapping
+Oct 31 01:57:43 ..... started sorting BAM
+Oct 31 01:57:47 ..... finished successfully
+Aligning trimmed/t_ENCFF565KTC.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF565KTC.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF565KTC.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 01:57:48 ..... started STAR run
+Oct 31 01:57:48 ..... loading genome
+Oct 31 01:57:49 ..... started mapping
+Oct 31 04:14:28 ..... finished mapping
+Oct 31 04:14:28 ..... started sorting BAM
+Oct 31 04:14:34 ..... finished successfully
+Aligning trimmed/t_ENCFF654OBR.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF654OBR.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF654OBR.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 04:14:35 ..... started STAR run
+Oct 31 04:14:35 ..... loading genome
+Oct 31 04:14:36 ..... started mapping
+Oct 31 05:15:31 ..... finished mapping
+Oct 31 05:15:31 ..... started sorting BAM
+Oct 31 05:15:33 ..... finished successfully
+Aligning trimmed/t_ENCFF678XFK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF678XFK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF678XFK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 05:15:34 ..... started STAR run
+Oct 31 05:15:34 ..... loading genome
+Oct 31 05:15:35 ..... started mapping
+Oct 31 06:24:20 ..... finished mapping
+Oct 31 06:24:20 ..... started sorting BAM
+Oct 31 06:24:23 ..... finished successfully
+Aligning trimmed/t_ENCFF679RDZ.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF679RDZ.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF679RDZ.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 06:24:23 ..... started STAR run
+Oct 31 06:24:23 ..... loading genome
+Oct 31 06:24:24 ..... started mapping
+Oct 31 08:13:56 ..... finished mapping
+Oct 31 08:13:56 ..... started sorting BAM
+Oct 31 08:14:01 ..... finished successfully
+Aligning trimmed/t_ENCFF682WAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF682WAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF682WAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 08:14:01 ..... started STAR run
+Oct 31 08:14:01 ..... loading genome
+Oct 31 08:14:02 ..... started mapping
+Oct 31 09:18:19 ..... finished mapping
+Oct 31 09:18:19 ..... started sorting BAM
+Oct 31 09:18:21 ..... finished successfully
+Aligning trimmed/t_ENCFF775HDI.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF775HDI.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF775HDI.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 09:18:22 ..... started STAR run
+Oct 31 09:18:22 ..... loading genome
+Oct 31 09:18:23 ..... started mapping
+Oct 31 11:15:37 ..... finished mapping
+Oct 31 11:15:37 ..... started sorting BAM
+Oct 31 11:15:40 ..... finished successfully
+Aligning trimmed/t_ENCFF780HRS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF780HRS.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF780HRS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 11:15:40 ..... started STAR run
+Oct 31 11:15:41 ..... loading genome
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[32mulimitESC[39m -n 4096ESC[14DESC[33mfEESC[33moESC[33mrESC[39mESC[39m ESC[39mfESC[39mile in trimmed/ESC[34m*ESC[39m.fastq
+ESC[33mdoESC[39mESC[K
+ESC[32mechoESC[39m Aligning $file sample:ESC[K
+ESC[32mSTARESC[39m --genomeDir ESC[4mmm10/indexESC[24m \ESC[K
+--readFilesIn $file \ESC[K
+--outFileNamePrefix aligned2/$file \ESC[K
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \ESC[K
+--runThreadN 8ESC[K
+ESC[33mdoneESC[39mESC[KESC[1CESC[?2004l
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+        STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+        STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+...skipping...
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hOct 31 11:15:42 ..... started mapping
+Oct 31 12:17:55 ..... finished mapping
+Oct 31 12:17:55 ..... started sorting BAM
+Oct 31 12:17:58 ..... finished successfully
+Aligning trimmed/t_ENCFF820NAK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF820NAK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF820NAK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 12:17:58 ..... started STAR run
+Oct 31 12:17:58 ..... loading genome
+Oct 31 12:17:59 ..... started mapping
+Oct 31 15:09:31 ..... finished mapping
+Oct 31 15:09:31 ..... started sorting BAM
+Oct 31 15:09:35 ..... finished successfully
+Aligning trimmed/t_ENCFF959ZAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF959ZAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF959ZAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 15:09:35 ..... started STAR run
+Oct 31 15:09:36 ..... loading genome
+Oct 31 15:09:37 ..... started mapping
+Oct 31 16:36:08 ..... finished mapping
+Oct 31 16:36:08 ..... started sorting BAM
+Oct 31 16:36:11 ..... finished successfully
+(base) 💻 ~/Desktop/MSc/PGB/RNA-seq for file in trimmed/*.fastq
+do
+echo Aligning $file sample:
+STAR --genomeDir mm10/index \
+--readFilesIn $file \
+--outFileNamePrefix aligned2/$file \
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \
+--runThreadN 8
+done
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+Oct 30 14:45:45 ..... finished mapping
+Oct 30 14:45:45 ..... started sorting BAM
+Oct 30 14:45:50 ..... finished successfully
+Aligning trimmed/t_ENCFF249AZE.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF249AZE.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF249AZE.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 14:45:50 ..... started STAR run
+Oct 30 14:45:50 ..... loading genome
+Oct 30 14:45:51 ..... started mapping
+Oct 30 16:13:46 ..... finished mapping
+Oct 30 16:13:46 ..... started sorting BAM
+Oct 30 16:13:49 ..... finished successfully
+Aligning trimmed/t_ENCFF262CIY.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF262CIY.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF262CIY.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 16:13:49 ..... started STAR run
+Oct 30 16:13:49 ..... loading genome
+Oct 30 16:13:50 ..... started mapping
+Oct 30 17:06:50 ..... finished mapping
+Oct 30 17:06:50 ..... started sorting BAM
+Oct 30 17:06:52 ..... finished successfully
+Aligning trimmed/t_ENCFF291NWK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF291NWK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF291NWK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 17:06:53 ..... started STAR run
+Oct 30 17:06:53 ..... loading genome
+Oct 30 17:06:54 ..... started mapping
+Oct 30 20:24:19 ..... finished mapping
+Oct 30 20:24:19 ..... started sorting BAM
+Oct 30 20:24:21 ..... finished successfully
+Aligning trimmed/t_ENCFF409ZNA.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF409ZNA.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF409ZNA.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 20:24:22 ..... started STAR run
+Oct 30 20:24:22 ..... loading genome
+Oct 30 20:24:23 ..... started mapping
+Oct 30 21:54:18 ..... finished mapping
+Oct 30 21:54:18 ..... started sorting BAM
+Oct 30 21:54:22 ..... finished successfully
+Aligning trimmed/t_ENCFF419QRX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF419QRX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF419QRX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 21:54:23 ..... started STAR run
+Oct 30 21:54:23 ..... loading genome
+Oct 30 21:54:24 ..... started mapping
+Oct 31 00:06:21 ..... finished mapping
+Oct 31 00:06:21 ..... started sorting BAM
+Oct 31 00:06:27 ..... finished successfully
+Aligning trimmed/t_ENCFF479HKB.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF479HKB.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF479HKB.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 00:06:27 ..... started STAR run
+Oct 31 00:06:28 ..... loading genome
+Oct 31 00:06:29 ..... started mapping
+Oct 31 01:57:43 ..... finished mapping
+Oct 31 01:57:43 ..... started sorting BAM
+Oct 31 01:57:47 ..... finished successfully
+Aligning trimmed/t_ENCFF565KTC.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF565KTC.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF565KTC.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 01:57:48 ..... started STAR run
+Oct 31 01:57:48 ..... loading genome
+Oct 31 01:57:49 ..... started mapping
+Oct 31 04:14:28 ..... finished mapping
+Oct 31 04:14:28 ..... started sorting BAM
+Oct 31 04:14:34 ..... finished successfully
+Aligning trimmed/t_ENCFF654OBR.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF654OBR.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF654OBR.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 04:14:35 ..... started STAR run
+Oct 31 04:14:35 ..... loading genome
+Oct 31 04:14:36 ..... started mapping
+Oct 31 05:15:31 ..... finished mapping
+Oct 31 05:15:31 ..... started sorting BAM
+Oct 31 05:15:33 ..... finished successfully
+Aligning trimmed/t_ENCFF678XFK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF678XFK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF678XFK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 05:15:34 ..... started STAR run
+Oct 31 05:15:34 ..... loading genome
+Oct 31 05:15:35 ..... started mapping
+Oct 31 06:24:20 ..... finished mapping
+Oct 31 06:24:20 ..... started sorting BAM
+Oct 31 06:24:23 ..... finished successfully
+Aligning trimmed/t_ENCFF679RDZ.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF679RDZ.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF679RDZ.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 06:24:23 ..... started STAR run
+Oct 31 06:24:23 ..... loading genome
+Oct 31 06:24:24 ..... started mapping
+Oct 31 08:13:56 ..... finished mapping
+Oct 31 08:13:56 ..... started sorting BAM
+Oct 31 08:14:01 ..... finished successfully
+Aligning trimmed/t_ENCFF682WAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF682WAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF682WAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 08:14:01 ..... started STAR run
+Oct 31 08:14:01 ..... loading genome
+Oct 31 08:14:02 ..... started mapping
+Oct 31 09:18:19 ..... finished mapping
+Oct 31 09:18:19 ..... started sorting BAM
+Oct 31 09:18:21 ..... finished successfully
+Aligning trimmed/t_ENCFF775HDI.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF775HDI.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF775HDI.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 09:18:22 ..... started STAR run
+Oct 31 09:18:22 ..... loading genome
+Oct 31 09:18:23 ..... started mapping
+Oct 31 11:15:37 ..... finished mapping
+Oct 31 11:15:37 ..... started sorting BAM
+Oct 31 11:15:40 ..... finished successfully
+Aligning trimmed/t_ENCFF780HRS.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF780HRS.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF780HRS.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 11:15:40 ..... started STAR run
+Oct 31 11:15:41 ..... loading genome
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[32mulimitESC[39m -n 4096ESC[14DESC[33mfEESC[33moESC[33mrESC[39mESC[39m ESC[39mfESC[39mile in trimmed/ESC[34m*ESC[39m.fastq
+ESC[33mdoESC[39mESC[K
+ESC[32mechoESC[39m Aligning $file sample:ESC[K
+ESC[32mSTARESC[39m --genomeDir ESC[4mmm10/indexESC[24m \ESC[K
+--readFilesIn $file \ESC[K
+--outFileNamePrefix aligned2/$file \ESC[K
+--outSAMtype BAM SortedByCoordinate --outSAMattributes All \ESC[K
+--runThreadN 8ESC[K
+ESC[33mdoneESC[39mESC[KESC[1CESC[?2004l
+Aligning trimmed/t_ENCFF246JLP.fastq sample:
+        STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF246JLP.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF246JLP.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+        STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 30 13:21:53 ..... started STAR run
+Oct 30 13:21:53 ..... loading genome
+Oct 30 13:21:53 ..... started mapping
+...skipping...
+ESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hESC[7mESC[32mulimitESC[39mESC[7m -n 4096ESC[27mESC[14DESC[27mESC[32muESC[27mESC[32mlESC[27mESC[32miESC[27mESC[32mmESC[27mESC[32miESC[27mESC[32mtESC[39mESC[27m ESC[27m-ESC[27mnESC[27m ESC[27m4ESC[27m0ESC[27m9ESC[27m6ESC[?2004l
+ESC[1mESC[7m%ESC[27mESC[1mESC[0m                                                                                                                                                           ^M ^MESC[0mESC[27mESC[24mESC[J(base) 💻 ~/Desktop/MSc/PGB/RNA-seq ESC[KESC[?2004hOct 31 11:15:42 ..... started mapping
+Oct 31 12:17:55 ..... finished mapping
+Oct 31 12:17:55 ..... started sorting BAM
+Oct 31 12:17:58 ..... finished successfully
+Aligning trimmed/t_ENCFF820NAK.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF820NAK.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF820NAK.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 12:17:58 ..... started STAR run
+Oct 31 12:17:58 ..... loading genome
+Oct 31 12:17:59 ..... started mapping
+Oct 31 15:09:31 ..... finished mapping
+Oct 31 15:09:31 ..... started sorting BAM
+Oct 31 15:09:35 ..... finished successfully
+Aligning trimmed/t_ENCFF959ZAX.fastq sample:
+	STAR --genomeDir mm10/index --readFilesIn trimmed/t_ENCFF959ZAX.fastq --outFileNamePrefix aligned2/trimmed/t_ENCFF959ZAX.fastq --outSAMtype BAM SortedByCoordinate --outSAMattributes All --runThreadN 8
+	STAR version: 2.7.11b   compiled:  :/Users/claudiavicentecomorera/Desktop/MSc/PGB/STAR-2.7.11b/source
+Oct 31 15:09:35 ..... started STAR run
+Oct 31 15:09:36 ..... loading genome
+Oct 31 15:09:37 ..... started mapping
+Oct 31 16:36:08 ..... finished mapping
+Oct 31 16:36:08 ..... started sorting BAM
+Oct 31 16:36:11 ..... finished successfully
+%

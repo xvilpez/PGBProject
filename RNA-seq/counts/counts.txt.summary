@@ -1,0 +1,15 @@
+Status	aligned/t_ENCFF184ELK.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF235PJS.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF237DCF.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF237SXT.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF246JLP.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF249AZE.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF262CIY.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF291NWK.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF409ZNA.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF419QRX.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF479HKB.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF565KTC.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF654OBR.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF678XFK.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF679RDZ.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF682WAX.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF775HDI.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF780HRS.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF820NAK.fastqAligned.sortedByCoord.out.bam	aligned/t_ENCFF959ZAX.fastqAligned.sortedByCoord.out.bam
+Assigned	1853662	1849332	2401782	1707666	3542134	1882963	1670015	2441664	3327834	4737913	3398168	4561541	1873493	2456075	3760784	1977646	2543112	1982044	2402087	2527049
+Unassigned_Unmapped	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MultiMapping	1555461	1545967	1884688	1312362	3208238	1673838	1219192	1537531	2424104	3902338	2612751	3646436	1657593	1555559	2739731	1646022	1455738	1647595	1870676	1440210
+Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NoFeatures	585061	583886	759315	613851	1272071	631652	559327	737325	1116561	1622872	1221976	1321832	627816	742371	994030	584333	799741	581983	757506	793221
+Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Ambiguity	105024	104438	112967	78568	184239	87211	78591	108573	155975	241833	157096	236699	86531	109720	203531	111982	115566	110700	113087	115189

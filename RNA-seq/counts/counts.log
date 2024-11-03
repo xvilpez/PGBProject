@@ -1,0 +1,187 @@
+%
+(base) 💻 ~/Desktop/MSc/PGB/RNA-seq featureCounts -t exon --largestOverlap -g gene_name -a mm1featureCounts -t exon --largestOverlap -g gene_name -a mm10/Mus_musculus.GRCm38.102.gtf -o counts/counts.txt aligned/*.bam
+
+        ==========     _____ _    _ ____  _____  ______          _____
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.7
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 20 BAM files                                     ||
+||                                                                            ||
+||                           t_ENCFF184ELK.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF235PJS.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF237DCF.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF237SXT.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF246JLP.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF249AZE.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF262CIY.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF291NWK.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF409ZNA.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF419QRX.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF479HKB.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF565KTC.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF654OBR.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF678XFK.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF679RDZ.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF682WAX.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF775HDI.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF780HRS.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF820NAK.fastqAligned.sortedByCoord.out.bam ||
+||                           t_ENCFF959ZAX.fastqAligned.sortedByCoord.out.bam ||
+||                                                                            ||
+||             Output file : counts.txt                                       ||
+||                 Summary : counts.txt.summary                               ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : Mus_musculus.GRCm38.102.gtf (GTF)                ||
+||      Dir for temp files : counts                                           ||
+||                                                                            ||
+||                 Threads : 1                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file Mus_musculus.GRCm38.102.gtf ...                       ||
+||    Features : 843712                                                       ||
+||    Meta-features : 55367                                                   ||
+||    Chromosomes/contigs : 45                                                ||
+||                                                                            ||
+|| Process BAM file t_ENCFF184ELK.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4099208                                              ||
+||    Successfully assigned alignments : 1853662 (45.2%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF235PJS.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4083623                                              ||
+||    Successfully assigned alignments : 1849332 (45.3%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF237DCF.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 5158752                                              ||
+||    Successfully assigned alignments : 2401782 (46.6%)                      ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF237SXT.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 3712447                                              ||
+||    Successfully assigned alignments : 1707666 (46.0%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF246JLP.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 8206682                                              ||
+||    Successfully assigned alignments : 3542134 (43.2%)                      ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF249AZE.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4275664                                              ||
+||    Successfully assigned alignments : 1882963 (44.0%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF262CIY.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 3527125                                              ||
+||    Successfully assigned alignments : 1670015 (47.3%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF291NWK.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4825093                                              ||
+||    Successfully assigned alignments : 2441664 (50.6%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF409ZNA.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 7024474                                              ||
+||    Successfully assigned alignments : 3327834 (47.4%)                      ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF419QRX.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10504956                                             ||
+||    Successfully assigned alignments : 4737913 (45.1%)                      ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF479HKB.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 7389991                                              ||
+||    Successfully assigned alignments : 3398168 (46.0%)                      ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF565KTC.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9766508                                              ||
+||    Successfully assigned alignments : 4561541 (46.7%)                      ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF654OBR.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4245433                                              ||
+||    Successfully assigned alignments : 1873493 (44.1%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF678XFK.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4863725                                              ||
+||    Successfully assigned alignments : 2456075 (50.5%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF679RDZ.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 7698076                                              ||
+||    Successfully assigned alignments : 3760784 (48.9%)                      ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF682WAX.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4319983                                              ||
+||    Successfully assigned alignments : 1977646 (45.8%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF775HDI.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4914157                                              ||
+||    Successfully assigned alignments : 2543112 (51.8%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF780HRS.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4322322                                              ||
+||    Successfully assigned alignments : 1982044 (45.9%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF820NAK.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 5143356                                              ||
+||    Successfully assigned alignments : 2402087 (46.7%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file t_ENCFF959ZAX.fastqAligned.sortedByCoord.out.bam...       ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 4875669                                              ||
+||    Successfully assigned alignments : 2527049 (51.8%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "counts/counts.txt.summa  ||
+|| ry"                                                                        ||
+||                                                                            ||
+\\============================================================================//
+
+%

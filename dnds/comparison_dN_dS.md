@@ -109,19 +109,39 @@ pheatmap(scale(s), cluster_rows = FALSE, cluster_cols = FALSE, color = colorRamp
 
 ![](comparison_dN_dS_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
-
 # Data log-transformation
 
 
 ``` r
-hist(bHLH_data$Homo_sapiens.w, main = "dN/dS Distribution", xlab = "dN/dS(ω)", breaks = 30, col = "#8EEE8B")
+ggplot(bHLH_data, aes(x = Homo_sapiens.w)) +
+  geom_histogram(bins = 30, fill = "skyblue", color = "skyblue2") +
+  geom_vline(aes(xintercept = Homo_sapiens.w[HGNC.symbol == "MYOD1"]), 
+             color = "red", size = 0.5, linetype = "dashed") +
+  geom_text(aes(x = Homo_sapiens.w[HGNC.symbol == "MYOD1"], 
+                y = 60, label = "MYOD1"), 
+            color = "red", vjust = -0.5, hjust = -0.2) +
+  labs(title = "Histogram of dN/dS Distribution Before Log-transformation", 
+       x = "dN/dS(ω)", 
+       y = "Frequency") +
+  theme_light()
 ```
 
 ![](comparison_dN_dS_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 bHLH_data$Homo_sapiens.w.log2 <- log2(bHLH_data$Homo_sapiens.w)
-hist(bHLH_data$Homo_sapiens.w.log2, main = "dN/dS Distribution", xlab = "log2(dN/dS(ω))", breaks = 30, col = "#8EEE8B")
+
+ggplot(bHLH_data, aes(x = Homo_sapiens.w.log2)) +
+  geom_histogram(bins = 30, fill = "pink", color = "pink2") +
+  geom_vline(aes(xintercept = Homo_sapiens.w.log2[HGNC.symbol == "MYOD1"]), 
+             color = "red", size = 0.5, linetype = "dashed") +
+  geom_text(aes(x = Homo_sapiens.w.log2[HGNC.symbol == "MYOD1"], 
+                y = 30, label = "MYOD1"), 
+            color = "red", vjust = -0.5, hjust = -0.2) +
+  labs(title = "Histogram of dN/dS Distribution After Log-transformation", 
+       x = "log2(dN/dS(ω))", 
+       y = "Frequency") +
+  theme_light()
 ```
 
 ![](comparison_dN_dS_files/figure-html/unnamed-chunk-5-2.png)<!-- -->
@@ -135,7 +155,7 @@ MyoD1 dN/dS (ω) rato is 1e-04.
 ggplot(bHLH_data, aes(x = HGNC.symbol, y = Homo_sapiens.w.log2)) +
   geom_bar(stat = "identity", aes(fill = HGNC.symbol == "MYOD1")) +  
   scale_fill_manual(values = c("#68B0F8", "#C968F8"), guide = "none") +  
-  labs(title = "Bar plot of dN/dS (ω) values from bHLH family members", y = "log2(dN/dS (ω))", x = "bHLH transcription factors") +
+  labs(title = "Barplot of dN/dS (ω) Values From bHLH Family Members", y = "log2(dN/dS (ω))", x = "bHLH transcription factors") +
   theme_bw() + 
   scale_x_discrete(breaks = bHLH_data$HGNC.symbol[seq(1, nrow(bHLH_data), by = 2)], labels = function(x) {ifelse(x == "MYOD1", expression(bold("MYOD1")), x)}) +
   theme(axis.text.x = element_text(hjust = 1, size = 10), axis.text.y = element_text(size = 10))+
@@ -190,7 +210,7 @@ MyoD1, as the majority of proteins, seems to be under strong purifying selection
 ggplot(df, aes(x=Geneset, y=Homo_sapiens.w , fill=Geneset)) +
   geom_violin(width=1.4) +
   geom_boxplot(width=0.1, color="grey", alpha=0.2) +
-  labs(y = "dN/dS (ω)") +
+  labs(title = "Comparison of dN/dS (ω) Ratios Across Gene Sets: Muscle vs Others", y = "dN/dS (ω)") +
   theme_light() +
   theme(legend.position="none", plot.title = element_text(size=11)) + 
   ylim(c(0,1)) +
