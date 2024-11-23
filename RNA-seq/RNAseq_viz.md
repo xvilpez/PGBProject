@@ -18,9 +18,9 @@ output:
 
 
 ``` r
+library(dplyr)
 library(edgeR)
 library(matrixStats)
-library(dplyr)
 library(ggplot2)
 library(GO.db)
 library(biomaRt)
@@ -315,3 +315,31 @@ pheatmap(m_fpkm,
 ```
 
 ![](RNAseq_viz_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+
+
+``` r
+s <- fpkm[rownames(fpkm) %in% c("Myod1", "Tnnt1", "Ryr1", "Csrp3", "Mef2a", "Atp2a1", "Mylpf", "Tnni2", "Tnnt3"), ]
+df <- as.data.frame(t(s))
+df$Stage <- Cond$Stage  
+df$Rep <- Cond$Rep  
+
+df_long <- melt(df, variable.name = "Gene", value.name = "FPKM")
+```
+
+```
+## Using Stage, Rep as id variables
+```
+
+``` r
+ggplot(df_long, aes(x = Stage, y = FPKM, color = Gene, group = interaction(Gene, Rep))) +
+  geom_point( ) +  
+  geom_line() +  
+  facet_wrap(~Gene, scales = "free_y") +  
+  labs(title = "Gene Expression of Genes Interacting With MyoD1 in Mouse Embryonic Stages", 
+       x = "Developmental Stage", 
+       y = "FPKM") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")  # Rotate x-axis labels
+```
+
+![](RNAseq_viz_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
