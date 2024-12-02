@@ -1,0 +1,7 @@
+Frontal_cortex	0.0700013
+Gastrocnemius	0.0527472
+Heart	0.0277424
+Hippocampus	0.0475901
+Lung	0.0280734
+Spleen	0.042196
+Thymus	0.0512219

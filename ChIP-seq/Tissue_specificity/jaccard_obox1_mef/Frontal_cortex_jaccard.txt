@@ -1,0 +1,2 @@
+intersection	union	jaccard	n_intersections
+695263	9932137	0.0700013	3540

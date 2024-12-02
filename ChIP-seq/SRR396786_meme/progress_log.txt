@@ -1,0 +1,430 @@
+Invoking:
+  getsize SRR396786_meme/RobustPeaks396786.resized.bed.fa 1> $metrics
+Finished invoke:
+  name: count_seqs  status: 0  time: 0.346478
+Invoking:
+  fasta-most -min 50 < SRR396786_meme/RobustPeaks396786.resized.bed.fa 1> $metrics
+Finished invoke:
+  name: most_seqs  status: 0  time: 0.210826
+Invoking:
+  fasta-center -dna -len 100 < SRR396786_meme/RobustPeaks396786.resized.bed.fa 1> SRR396786_meme/seqs-centered
+Finished invoke:
+  name: center_seqs  status: 0  time: 0.694006
+Invoking:
+  fasta-get-markov -nostatus -nosummary -dna -m 2 SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/background
+Finished invoke:
+  name: bg  status: 0  time: 0.298315
+Invoking:
+  meme SRR396786_meme/seqs-centered -oc SRR396786_meme/meme_out -mod zoops -nmotifs 3 -minw 6 -maxw 15 -bfile SRR396786_meme/background -dna -seed 0 -revcomp -nostatus
+Finished invoke:
+  name: meme  status: 0  time: 831.765188
+Invoking:
+  streme --verbosity 1 --oc SRR396786_meme/streme_out -dna --seed 0 --p SRR396786_meme/seqs-centered --minw 6 --maxw 15 --order 2
+Finished invoke:
+  name: streme  status: 0  time: 18505.500436
+Invoking:
+  centrimo -seqlen 500 -verbosity 1 -oc SRR396786_meme/centrimo_out -bfile SRR396786_meme/background SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml /home/leyao/Downloads/mousegenome/jaspar.meme
+Finished invoke:
+  name: centrimo  status: 0  time: 801.71002
+Invoking:
+  tomtom -verbosity 1 -oc SRR396786_meme/meme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc SRR396786_meme/meme_out/meme.xml /home/leyao/Downloads/mousegenome/jaspar.meme
+Finished invoke:
+  name: meme_tomtom  status: 0  time: 2.172042
+Invoking:
+  tomtom -verbosity 1 -oc SRR396786_meme/streme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc SRR396786_meme/streme_out/streme.xml /home/leyao/Downloads/mousegenome/jaspar.meme
+Finished invoke:
+  name: streme_tomtom  status: 0  time: 35.175862
+Invoking:
+  tomtom -verbosity 1 -text -thresh 0.1 SRR396786_meme/combined.meme SRR396786_meme/combined.meme 1> SRR396786_meme/motif_alignment.txt
+Finished invoke:
+  name: align  status: 0  time: 95.581024
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_1 -bgfile SRR396786_meme/background -keepprimary -primary 1-RACAGCTGB SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo1  status: 0  time: 614.118066
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_2 -bgfile SRR396786_meme/background -keepprimary -primary 6-CCASHAGRGGGCR SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo2  status: 0  time: 16.891622
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_3 -bgfile SRR396786_meme/background -keepprimary -primary 7-CTGTCAMTCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo3  status: 0  time: 64.355302
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_4 -bgfile SRR396786_meme/background -keepprimary -primary 17-GTCACYR SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo4  status: 0  time: 165.102698
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_5 -bgfile SRR396786_meme/background -keepprimary -primary 24-GCCCTGCCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo5  status: 0  time: 46.044719
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_6 -bgfile SRR396786_meme/background -keepprimary -primary 5-RTGASTCAY SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo6  status: 0  time: 45.863753
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_7 -bgfile SRR396786_meme/background -keepprimary -primary 56-CAGTCAGGAGCACA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo7  status: 0  time: 13.867143
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_8 -bgfile SRR396786_meme/background -keepprimary -primary 47-ACRCATGTGC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo8  status: 0  time: 24.90784
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_9 -bgfile SRR396786_meme/background -keepprimary -primary 54-CCTAGCAAC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo9  status: 0  time: 12.657183
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_10 -bgfile SRR396786_meme/background -keepprimary -primary 46-CACGCCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo10  status: 0  time: 219.180718
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_11 -bgfile SRR396786_meme/background -keepprimary -primary 73-CACYSRGTG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo11  status: 0  time: 54.707148
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_12 -bgfile SRR396786_meme/background -keepprimary -primary 45-CAAATGCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo12  status: 0  time: 64.95026
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_13 -bgfile SRR396786_meme/background -keepprimary -primary 25-CGGGGAC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo13  status: 0  time: 176.729438
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_14 -bgfile SRR396786_meme/background -keepprimary -primary 19-CAACAATGGTCAGC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo14  status: 0  time: 2.764583
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_15 -bgfile SRR396786_meme/background -keepprimary -primary 2-GCCCCGCCCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo15  status: 0  time: 118.968479
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_16 -bgfile SRR396786_meme/background -keepprimary -primary 62-GAGGTCAGA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo16  status: 0  time: 24.680293
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_17 -bgfile SRR396786_meme/background -keepprimary -primary 16-AGATGGCGS SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo17  status: 0  time: 16.787903
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_18 -bgfile SRR396786_meme/background -keepprimary -primary 31-TGCGCRYGCGCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo18  status: 0  time: 10.436205
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_19 -bgfile SRR396786_meme/background -keepprimary -primary 42-GGCAGGCAGACACCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo19  status: 0  time: 3.399314
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_20 -bgfile SRR396786_meme/background -keepprimary -primary 68-GGAAAACTGCCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo20  status: 0  time: 11.431299
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_21 -bgfile SRR396786_meme/background -keepprimary -primary 28-GTTGGCTCAA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo21  status: 0  time: 47.470382
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_22 -bgfile SRR396786_meme/background -keepprimary -primary ACACACACACACACA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/meme_out/meme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo22  status: 0  time: 27.482474
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_23 -bgfile SRR396786_meme/background -keepprimary -primary 8-WAACCACA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo23  status: 0  time: 60.099611
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_24 -bgfile SRR396786_meme/background -keepprimary -primary 3-CTAAAAATAG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo24  status: 0  time: 57.476157
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_25 -bgfile SRR396786_meme/background -keepprimary -primary 55-CTCCTCCTCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo25  status: 0  time: 159.33707
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_26 -bgfile SRR396786_meme/background -keepprimary -primary 38-ACTCCAGTTCCAGG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo26  status: 0  time: 27.477155
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_27 -bgfile SRR396786_meme/background -keepprimary -primary 15-GGGAAGGGA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo27  status: 0  time: 110.094321
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_28 -bgfile SRR396786_meme/background -keepprimary -primary 40-CCCGAGGC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo28  status: 0  time: 138.820987
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_29 -bgfile SRR396786_meme/background -keepprimary -primary 67-AATTCAACAACAGG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo29  status: 0  time: 3.486797
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_30 -bgfile SRR396786_meme/background -keepprimary -primary 70-GCAGGATCCTCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo30  status: 0  time: 12.866233
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_31 -bgfile SRR396786_meme/background -keepprimary -primary 29-CAGTCCCACAAGGC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo31  status: 0  time: 2.43292
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_32 -bgfile SRR396786_meme/background -keepprimary -primary 59-GACAGGAGCCTAGC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo32  status: 0  time: 3.224024
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_33 -bgfile SRR396786_meme/background -keepprimary -primary 9-WAGGAAT SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo33  status: 0  time: 322.469868
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_34 -bgfile SRR396786_meme/background -keepprimary -primary 77-AAAGAGTCAGATG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo34  status: 0  time: 2.828125
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_35 -bgfile SRR396786_meme/background -keepprimary -primary 10-KAARTA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo35  status: 0  time: 184.479954
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_36 -bgfile SRR396786_meme/background -keepprimary -primary 11-AGTGCTGGGATTAAA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo36  status: 0  time: 13.974736
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_37 -bgfile SRR396786_meme/background -keepprimary -primary 18-AAGTCCAAGGATCT SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo37  status: 0  time: 2.896923
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_38 -bgfile SRR396786_meme/background -keepprimary -primary 13-GTGGAGCCTCTCAGA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo38  status: 0  time: 4.888412
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_39 -bgfile SRR396786_meme/background -keepprimary -primary 65-CCAACCAATGGACA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo39  status: 0  time: 3.070639
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_40 -bgfile SRR396786_meme/background -keepprimary -primary 49-ACCGGAAG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo40  status: 0  time: 32.542708
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_41 -bgfile SRR396786_meme/background -keepprimary -primary 34-ACCCACAGCCAAAC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo41  status: 0  time: 7.161004
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_42 -bgfile SRR396786_meme/background -keepprimary -primary 20-AGTTCRAGGCCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo42  status: 0  time: 21.779642
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_43 -bgfile SRR396786_meme/background -keepprimary -primary 21-RGAGGCAGA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo43  status: 0  time: 62.958652
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_44 -bgfile SRR396786_meme/background -keepprimary -primary 22-CCTCTGSAAGAG SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo44  status: 0  time: 10.611309
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_45 -bgfile SRR396786_meme/background -keepprimary -primary 72-CCATCTCTCCAGCCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo45  status: 0  time: 16.430283
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_46 -bgfile SRR396786_meme/background -keepprimary -primary 23-TACCCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo46  status: 0  time: 21.765806
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_47 -bgfile SRR396786_meme/background -keepprimary -primary 26-TGAACTCA SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo47  status: 0  time: 50.776727
+Invoking:
+  spamo -verbosity 1 -oc SRR396786_meme/spamo_out_48 -bgfile SRR396786_meme/background -keepprimary -primary 27-AGTCCAACTCC SRR396786_meme/RobustPeaks396786.resized.bed.fa SRR396786_meme/streme_out/streme.xml SRR396786_meme/meme_out/meme.xml SRR396786_meme/streme_out/streme.xml
+Finished invoke:
+  name: spamo48  status: 0  time: 3.837198
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_1 --bgfile SRR396786_meme/background --motif 1-RACAGCTGB SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo1  status: 0  time: 15.534749
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_2 --bgfile SRR396786_meme/background --motif 6-CCASHAGRGGGCR SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo2  status: 0  time: 16.134721
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_3 --bgfile SRR396786_meme/background --motif 7-CTGTCAMTCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo3  status: 0  time: 15.388025
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_4 --bgfile SRR396786_meme/background --motif 17-GTCACYR SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo4  status: 0  time: 14.279782
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_5 --bgfile SRR396786_meme/background --motif 24-GCCCTGCCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo5  status: 0  time: 15.01879
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_6 --bgfile SRR396786_meme/background --motif 5-RTGASTCAY SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo6  status: 0  time: 15.210835
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_7 --bgfile SRR396786_meme/background --motif 56-CAGTCAGGAGCACA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo7  status: 0  time: 14.75378
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_8 --bgfile SRR396786_meme/background --motif 47-ACRCATGTGC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo8  status: 0  time: 14.62239
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_9 --bgfile SRR396786_meme/background --motif 54-CCTAGCAAC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo9  status: 0  time: 14.134558
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_10 --bgfile SRR396786_meme/background --motif 46-CACGCCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo10  status: 0  time: 14.752379
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_11 --bgfile SRR396786_meme/background --motif 73-CACYSRGTG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo11  status: 0  time: 14.146648
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_12 --bgfile SRR396786_meme/background --motif 45-CAAATGCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo12  status: 0  time: 14.837916
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_13 --bgfile SRR396786_meme/background --motif 25-CGGGGAC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo13  status: 0  time: 13.65027
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_14 --bgfile SRR396786_meme/background --motif 19-CAACAATGGTCAGC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo14  status: 0  time: 14.981718
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_15 --bgfile SRR396786_meme/background --motif 2-GCCCCGCCCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo15  status: 0  time: 15.585912
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_16 --bgfile SRR396786_meme/background --motif 62-GAGGTCAGA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo16  status: 0  time: 14.186299
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_17 --bgfile SRR396786_meme/background --motif 16-AGATGGCGS SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo17  status: 0  time: 15.077871
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_18 --bgfile SRR396786_meme/background --motif 31-TGCGCRYGCGCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo18  status: 0  time: 14.687603
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_19 --bgfile SRR396786_meme/background --motif 42-GGCAGGCAGACACCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo19  status: 0  time: 16.103966
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_20 --bgfile SRR396786_meme/background --motif 68-GGAAAACTGCCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo20  status: 0  time: 14.557041
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_21 --bgfile SRR396786_meme/background --motif 28-GTTGGCTCAA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo21  status: 0  time: 15.275711
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_22 --bgfile SRR396786_meme/background --motif ACACACACACACACA SRR396786_meme/meme_out/meme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo22  status: 0  time: 16.593423
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_23 --bgfile SRR396786_meme/background --motif 8-WAACCACA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo23  status: 0  time: 14.145748
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_24 --bgfile SRR396786_meme/background --motif 3-CTAAAAATAG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo24  status: 0  time: 15.41151
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_25 --bgfile SRR396786_meme/background --motif 55-CTCCTCCTCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo25  status: 0  time: 14.543213
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_26 --bgfile SRR396786_meme/background --motif 38-ACTCCAGTTCCAGG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo26  status: 0  time: 14.993526
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_27 --bgfile SRR396786_meme/background --motif 15-GGGAAGGGA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo27  status: 0  time: 14.40559
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_28 --bgfile SRR396786_meme/background --motif 40-CCCGAGGC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo28  status: 0  time: 14.153646
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_29 --bgfile SRR396786_meme/background --motif 67-AATTCAACAACAGG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo29  status: 0  time: 15.023703
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_30 --bgfile SRR396786_meme/background --motif 70-GCAGGATCCTCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo30  status: 0  time: 14.588443
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_31 --bgfile SRR396786_meme/background --motif 29-CAGTCCCACAAGGC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo31  status: 0  time: 14.954877
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_32 --bgfile SRR396786_meme/background --motif 59-GACAGGAGCCTAGC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo32  status: 0  time: 15.15995
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_33 --bgfile SRR396786_meme/background --motif 9-WAGGAAT SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo33  status: 0  time: 13.887645
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_34 --bgfile SRR396786_meme/background --motif 77-AAAGAGTCAGATG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo34  status: 0  time: 15.021113
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_35 --bgfile SRR396786_meme/background --motif 10-KAARTA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo35  status: 0  time: 13.615672
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_36 --bgfile SRR396786_meme/background --motif 11-AGTGCTGGGATTAAA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo36  status: 0  time: 15.055665
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_37 --bgfile SRR396786_meme/background --motif 18-AAGTCCAAGGATCT SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo37  status: 0  time: 15.93814
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_38 --bgfile SRR396786_meme/background --motif 13-GTGGAGCCTCTCAGA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo38  status: 0  time: 15.036081
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_39 --bgfile SRR396786_meme/background --motif 65-CCAACCAATGGACA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo39  status: 0  time: 14.897425
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_40 --bgfile SRR396786_meme/background --motif 49-ACCGGAAG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo40  status: 0  time: 13.929225
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_41 --bgfile SRR396786_meme/background --motif 34-ACCCACAGCCAAAC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo41  status: 0  time: 14.960824
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_42 --bgfile SRR396786_meme/background --motif 20-AGTTCRAGGCCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo42  status: 0  time: 14.781315
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_43 --bgfile SRR396786_meme/background --motif 21-RGAGGCAGA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo43  status: 0  time: 14.331453
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_44 --bgfile SRR396786_meme/background --motif 22-CCTCTGSAAGAG SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo44  status: 0  time: 14.807131
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_45 --bgfile SRR396786_meme/background --motif 72-CCATCTCTCCAGCCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo45  status: 0  time: 15.942628
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_46 --bgfile SRR396786_meme/background --motif 23-TACCCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo46  status: 0  time: 14.330021
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_47 --bgfile SRR396786_meme/background --motif 26-TGAACTCA SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo47  status: 0  time: 14.536617
+Invoking:
+  fimo --verbosity 1 --oc SRR396786_meme/fimo_out_48 --bgfile SRR396786_meme/background --motif 27-AGTCCAACTCC SRR396786_meme/streme_out/streme.xml SRR396786_meme/RobustPeaks396786.resized.bed.fa
+Finished invoke:
+  name: fimo48  status: 0  time: 14.637475
+Writing output
+Invoking:
+  meme-chip_html_to_tsv SRR396786_meme/meme-chip.html SRR396786_meme/summary.tsv "meme-chip -oc SRR396786_meme --db /home/leyao/Downloads/mousegenome/jaspar.meme RobustPeaks396786.resized.bed.fa" 5.5.7 "Wed Jun 19 13\:59\:04 2024 -0700"
+Finished invoke:
+  name: summary  status: 0  time: 2.788008
+Done
