@@ -1,0 +1,33 @@
+#!/bin/bash
+
+mkdir -p jaccard_results
+
+# Tissue list
+awk '{print $11}' multi_tissue_accessible_regions.bed | sort | uniq > tissue_list.txt
+
+# Calculate jaccard index for each tissue
+while read tissue; do
+  echo "Procesando tejido: $tissue"
+ 
+  # Extract all the accessibility regions for that tissue
+  awk -v t=$tissue '$11 == t {print $1, $2, $3}' multi_tissue_accessible_regions.bed > ${tissue}.bed
+  awk '{print $1, $2, $3}' OFS="\t" ${tissue}.bed > ${tissue}_fixed.bed
+  rm ${tissue}.bed
+
+  # Bedtools jaccard
+  bedtools jaccard -a ${tissue}_fixed.bed -b remap_tf_sites.bed > jaccard_results/${tissue}_jaccard.txt
+
+  # Extract only jaccard value
+  jaccard=$(awk 'NR==2 {print $3}' jaccard_results/${tissue}_jaccard.txt)
+  echo "$tissue Jaccard Index: $jaccard"
+done < tissue_list.txt
+
+# Create file with jaccard values
+for file in *_jaccard.txt; do
+  tissue=$(basename "$file" _jaccard.txt)
+  jaccard=$(awk 'NR==2 {print $3}' "$file")
+  echo -e "$tissue\t$jaccard" >> jaccard_results.txt
+done
+
+cat jaccard_results.txt
+
